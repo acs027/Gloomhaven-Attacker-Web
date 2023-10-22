@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Tajawal:wght@700&display=swap');
+
+.decks-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.decks {
+    display: flex;
+    width: 70%;
+    margin: auto;
+}
+
+.deck-container { 
+    display: flex;
+    padding-inline: 10px;
+    width: 250px;
+    justify-content: center;
+}
+
+.deck {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.deck-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    align-items: center;
+    font-family: 'Pirata One';
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+button :hover {
+    background-color: chocolate;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+.card {
+    position: absolute;
+    height: 133px;
+    width: 204px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 25px;
+}
+
+.sidemenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    width: 512px;
+    height: 100vh;
+    left: -512px;
+    color: white;
+    z-index: 9;
+}
+
+.sidemenu-bg {
+    position: fixed;
+    z-index: -1;
+    width: 512px;
+    height: 100vh;
+}
+
+.sidemenu-bg img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+@media screen and (max-width: 512px) {
+    .sidemenu {
+        width: 100vw;
+    }
+}
+
+.sidemenu.open {
+    left: 0;
+}
+
+.sidebttn {
+    position: fixed;
+    left: 0;
+}
+
+.togglemenu {
+    position: absolute;
+    width: 90%;
+    top: 0;
+    padding: 10px;
+    text-align: right;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: space-around;
+    height: 5em;
+    width: 90%;
+    margin: 0;
+}
+
+.icons {
+    display: flex;
+    width: 5em;
+    height: 5em;
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons.clicked {
+    background-color: chocolate;
+}
+
+.icons img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.close-sidemenu {
+    position: absolute;
+    left: 512px;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.perk-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 280px;
+    padding: 10px;
+}
+
+.perks {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-between;
+    width: 90%;
+    height: 90%;
+    color: black;
+    border-radius: 25px;
+    padding: 15px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.perks div {
+    display: inline;
+    padding-block: 3px;
+}
+
+.perks input {
+    float: left;
+}
+
+.hero-select-container {
+    height: 5vh;
+}
+
+.hero-select {
+    display: flex;
+}
+
+.hero-select select {
+    border-radius: 15px 0 0 0;
+}
+
+.deck-add-bttn {
+    padding: 10px;
+    background-color: black;
+    border-radius: 0 0 15px 0;
+    
+}
+.deck-add-bttn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+.hero-remover-container {
+    height: 2vh;
+}
+
+.hero-remover-container button {
+    color: black;
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.hero-remover-container button:hover {
+    color: black;
+    background-color: chocolate;
+    cursor: pointer;
+}
+
+.scrolltohero {
+    display: none;
+}
+
+@media screen and (max-width: 1350px) {
+    .scrolltohero {
+        display: flex;
+        position: fixed;
+        width: 60%;
+        text-align: center;
+        justify-content: space-around;
+        bottom: 0;
+        background-color:brown;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .scrolltohero button {
+        height: 30px;
+    }
+
+    .scrolltohero button:hover {
+        background-color: chocolate;
+    }
+}
+
