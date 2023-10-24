@@ -1,32 +1,34 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { DeckContext } from '../context/deck-context'
 import { useContext } from 'react'
-import { Deck } from './deck'
+import { Deck } from '../components/deck'
 import './decks.css'
 import { SideMenu } from '../components/sidemenu'
 import { ArrowSquareRight } from 'phosphor-react'
+import { SideControl } from '../components/sideControl'
 
 export const Decks = () => {
     const {decks} = useContext(DeckContext)
     const [reRender, setRerender] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
 
-    const ref = useRef(null)
-
-    const scroll = (index) => {
-        const listNode = ref.current;
-        const deckNode = listNode.querySelectorAll('div.deck-container')[index];
-        deckNode.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center'
-        });
-
-    }
 
   return (
+    <div>
+        <SideControl />
     <div className='decks-container'>
+
         <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} reRender={reRender} setRerender={setRerender} />
+
+       
+        <div className='decks'>
+        {decks?.map((deck) => (
+            <div key={deck.id} className='deck-container'>
+            <Deck data={deck} key={deck.id} />
+            </div>
+        ))}
+
+        <div className='side-button-container'> 
 
         <div className='sidebttn' onClick={() => {setIsOpen(!isOpen)}}>
             <button> 
@@ -34,20 +36,9 @@ export const Decks = () => {
             </button>
             
         </div>
-        <div ref={ref} className='decks'>
-        {decks?.map((deck) => (
-            <div key={deck.id} className='deck-container'>
-            <Deck data={deck} key={deck.id} />
-            </div>
-        ))}
-        <div className='scrolltohero'>
-            {
-                decks?.map((deck, index) => (
-                    <button key={deck.id} onClick={() => {scroll(index)}}> {deck.name} </button>
-                ))
-            }
         </div>
         </div>
+    </div>
     </div>
   )
 }

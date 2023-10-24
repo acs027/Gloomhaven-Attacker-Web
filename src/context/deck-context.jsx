@@ -184,7 +184,11 @@ export const DeckContextProvider = (props) => {
     const items = JSON.parse(localStorage.getItem('items'))
     if (items) {
       setDecks(items)
+    } else {
+      addDeck("redguard")
     }
+
+    
   }, [])
 
   useEffect(() => {

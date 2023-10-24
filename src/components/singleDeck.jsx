@@ -6,14 +6,14 @@ import shuffleAudio from '../assets/shuffle.wav'
 import { ArrowsClockwise } from 'phosphor-react'
 import { HEROES } from '../HEROES'
 import useSound from 'use-sound'
+import { SideControl } from './sideControl'
 
 
-export const Deck = (props) => {
+export const SingleDeck = (props) => {
   const {name, deck} = props.data
   const {setOffset, resetDeck} = useContext(DeckContext)
   const [counter, setCounter] = useState(0)
   const [shuffle, setShuffle] = useState(false)
-
 
   const [play] = useSound(shuffleAudio, {volume: 0.2})
   
@@ -45,6 +45,7 @@ export const Deck = (props) => {
     deck.map((card) => {
       if (card.offset != 0) {
         tempCounter += 1
+        if (["miss", "crit"].includes(card.cardName)) setShuffle(true)
       }
     })
     setCounter(tempCounter)
@@ -74,6 +75,9 @@ export const Deck = (props) => {
           
         </div>
       ))}
+
+        <SideControl />
+      
     </div>
   )
 }

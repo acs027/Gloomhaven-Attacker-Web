@@ -1,6 +1,15 @@
-body {
+/* body {
     width: 100vw;
     height: 100vh;
+    background-image: url("./assets/gha_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} */
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
     background-image: url("./assets/gha_bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
